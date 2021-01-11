@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript Demo</title>
+    <meta charset="utf-8"></meta>
+    <script defer src="myScript.js"></script>
+    <style>
+    #myDiv, button {
+      font-size: 150%;
+    }
+    input {
+      font-size: 125%;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="myDiv">
+      <p>
+        <!-- Each label must be matched to an input -->
+        <label for='fname'>First Name:</label>
+        <!-- Good practice: give same name and id for every input -->
+        <input id='fname' name='fname' type='text' />
+        <br />
+        <label for='lname'>Last Name:</label>
+        <input id='lname' name='lname' type='text' />
+        <br />
+
+        <label for='radio'>Did you sleep last night?</label>
+        <input id='radio' name='radio' type="radio">
+        <br />
+        
+        <label for='checkbox'>Did you eat lunch yet?</label>
+        <input id='checkbox' name='checkbox' type="checkbox">
+      </p>
+      <button onclick='myClick()'>I'm a button, click me!</button>
+    </div>
+  </body>
+</html>
