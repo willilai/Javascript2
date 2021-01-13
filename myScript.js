@@ -12,27 +12,59 @@ function myClick () {
   var radio = document.getElementById('radio').checked;
   var checkbox = document.getElementById('checkbox').checked;
   console.log(fname, lname);
+
+  myJSON = {
+    "fname" : fname,
+    "lname" : lname,
+    "radio" : radio,
+    "checkbox" : checkbox,
+  }
+
+  console.log(myJSON)
   // By using = we *replace* the entire contents of the div tag.
   myDiv.innerHTML = "\n";
   // Now, using += we are *appending* to the new contents of the div tag.
   myDiv.innerHTML += "\t\t<h1>Whoa.</h1>\n"
   // Notice here that we are appending the values of the variables.
-  myDiv.innerHTML += "\t\t<p>" + fname + " " + lname + "</p>\n";
+  if (myJSON["fname"] == "")
+    {
+      myJSON["fname"] = "None"
+    }
+  if (myJSON["lname"] == "")
+    {
+      myJSON["lname"] = "None"
+    }
+  myDiv.innerHTML += "\t\t<p>" + myJSON["fname"] + " " + myJSON["lname"] + "</p>\n";
 
-  if (radio)
+  localStorage.setItem("myJSON", JSON.stringify(myJSON));
+
+  if (myJSON[radio])
     {
       myDiv.innerHTML += "\t\t<p>You did sleep last night. </p> \n";
     }
   else
     {
-      myDive.innerHTML += "\t\t<p>You didn't sleep last night. Hope you get some tonight. </p> \n";
+      myDiv.innerHTML += "\t\t<p>You didn't sleep last night. Hope you get some tonight. </p> \n";
     }
-  if (checkbox)
+
+  if (myJSON[checkbox])
     {
       myDiv.innerHTML += "\t\t<p>You did eat lunch. </p> \n";
     }
   else
     {
-      myDive.innerHTML += "\t\t<p>You didn't eat lunch. Hope you eat soon. </p> \n";
+      myDiv.innerHTML += "\t\t<p>You didn't eat lunch. Hope you eat soon. </p> \n";
     }
 }
+function clicked()
+  {
+    myJSON = JSON.parse(localStorage.getItem("myJSON"));
+    myDiv.innerHTML = "<br />";
+    myDiv.innerHTML += myJSON["fname"];
+    myDiv.innerHTML += "<br />";
+    myDiv.innerHTML += myJSON["lname"];
+    myDiv.innerHTML += "<br />";
+    myDiv.innerHTML += myJSON["radio"];
+    myDiv.innerHTML += "<br />";
+    myDiv.innerHTML += myJSON["checkbox"];
+  }
