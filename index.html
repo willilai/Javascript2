@@ -16,23 +16,29 @@
   <body>
     <div id="myDiv">
       <p>
-        <!-- Each label must be matched to an input -->
+        <!-- gets the user's first name -->
         <label for='fname'>First Name:</label>
         <!-- Good practice: give same name and id for every input -->
-        <input id='fname' name='fname' type='text' />
+        <input id='fname' name='fname' type='text' onmouseover='myMouseOver(id)' onmouseout='myMouseOut(id)' onblur="blurFunc(id)"/>
         <br />
+        <!-- gets the user's last name -->
         <label for='lname'>Last Name:</label>
-        <input id='lname' name='lname' type='text' />
+        <input id='lname' name='lname' type='text' onmouseover='myMouseOver(id)' onmouseout='myMouseOut(id)' onblur="blurFunc(id)"/>
         <br />
 
+        <!-- gets whether the user slept last night or not by means of a radio button-->
         <label for='radio'>Did you sleep last night?</label>
-        <input id='radio' name='radio' type="radio">
+        <input id='radio' name='radio' type="radio" onmouseover='myMouseOver(id)' onmouseout='myMouseOut(id)'>
         <br />
 
+        <!-- gets whether the user ate lunch already by means of a checkbox -->
         <label for='checkbox'>Did you eat lunch yet?</label>
-        <input id='checkbox' name='checkbox' type="checkbox">
+        <input id='checkbox' name='checkbox' type="checkbox" onmouseover='myMouseOver(id)' onmouseout='myMouseOut(id)'>
       </p>
+
+      <!-- creates a button for the user to display the data -->
       <button onclick='myClick()'>I'm a button, click me!</button>
+      <!-- creates a button for the user to see the data -->
       <button onclick='clicked()'>Click for data</button>
     </div>
   </body>
